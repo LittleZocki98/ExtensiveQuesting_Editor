@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ExtensiveQuesting.QuestingItem;
+using ExtensiveQuesting.QuestingItem.Quest;
+using ExtensiveQuesting.QuestingItem.Task;
+using ExtensiveQuesting.EnumDescription;
 using Newtonsoft.Json;
 
 namespace ExtensiveQuesting {
@@ -20,8 +22,12 @@ namespace ExtensiveQuesting {
   /// Interaktionslogik für MainWindow.xaml
   /// </summary>
   public partial class MainWindow : Window {
+
     public MainWindow() {
       InitializeComponent();
+
+      MessageBox.Show(Description.GetDescription(TaskIDs.kill_mob));
     }
+
   }
 }

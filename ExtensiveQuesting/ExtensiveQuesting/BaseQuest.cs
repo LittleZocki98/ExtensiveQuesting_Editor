@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace ExtensiveQuesting.QuestingItem {
+namespace ExtensiveQuesting.QuestingItem.Quest {
   /// <summary>
   /// Universal quest-parent
   /// </summary>
