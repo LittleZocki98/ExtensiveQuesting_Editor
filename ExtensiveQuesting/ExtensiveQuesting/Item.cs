@@ -78,5 +78,13 @@ namespace ExtensiveQuesting.QuestingItem.Item {
     public bool ShouldSerializeMeta() {
       return (Meta != 0);
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public bool IsDefined() {
+      return ID != string.Empty;
+    }
   }
 }

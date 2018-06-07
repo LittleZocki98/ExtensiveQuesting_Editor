@@ -8,8 +8,8 @@
         xmlns:qItem="clr-namespace:ExtensiveQuesting.QuestingItem"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-    <TextBlock x:Name="tblTests" TextWrapping="Wrap" Margin="5"/>
+  <Grid>
+    <TextBox x:Name="tblTest" Margin="2" TextWrapping="Wrap" IsReadOnly="true"/>
 
   </Grid>
 </Window>

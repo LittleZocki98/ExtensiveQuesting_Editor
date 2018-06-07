@@ -24,5 +24,16 @@ namespace ExtensiveQuesting.QuestingItem.Task {
     public TaskWalk() : base(TaskIDs.walk.ToString()) {
       Regions = new List<string>();
     }
+
+    /// <summary>
+    /// Is the task fully defined?
+    /// </summary>
+    /// <returns>Definedness of the task</returns>
+    public override bool IsDefined() {
+      return (
+        (base.IsDefined()) &&
+        (Regions.Count > 0)
+      );
+    }
   }
 }

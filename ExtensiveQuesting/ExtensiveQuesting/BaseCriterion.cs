@@ -3,38 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using ExtensiveQuesting.QuestingItem;
 using ExtensiveQuesting.QuestingItem.Quest;
 using ExtensiveQuesting.EnumDescription;
+using Newtonsoft.Json;
 
-namespace ExtensiveQuesting.QuestingItem.Task {
+namespace ExtensiveQuesting.QuestingItem.Criterion {
+
   /// <summary>
-  /// A list of all valid task IDs
+  /// A list of all valid criterion IDs
   /// </summary>
-  public enum TaskIDs {
-    [Description("Kill Entity")]
-    kill_mob,
+  public enum CriteriaIDs {
+    [Description("Complete Quest")]
+    quest_completed,
 
-    [Description("Collect Items")]
-    collect_items,
+    [Description("Reach Experience")]
+    experience,
 
-    [Description("Walk to Region(s)")]
-    walk,
+    [Description("Reach sStatistic")]
+    statistic,
 
-    [Description("Talk to NPC")]
-    talk_to,
+    [Description("Have Permission")]
+    permission,
 
-    [Description("Time Limit")]
-    time_limit
+    [Description("Reach Skill")]
+    skill
   };
 
   /// <summary>
-  /// Universal task-parent
+  /// Universal criterion-parent
   /// </summary>
-  class BaseTask : BaseItem {
+  class BaseCriterion : BaseItem {
 
     /// <summary>
-    /// Name of the task
+    /// Name of the Criterion
     /// </summary>
     [JsonProperty("name")]
     public string Name { get; set; }
@@ -46,23 +48,21 @@ namespace ExtensiveQuesting.QuestingItem.Task {
     public BaseQuest ParentQuest { get; internal protected set; }
 
     /// <summary>
-    /// Create a task without an ID
+    /// Create a criterion without an ID
     /// </summary>
-    public BaseTask() : base() {
+    public BaseCriterion() : base() {
+      Name = string.Empty;
+    }
+    /// <summary>
+    /// Create a criterion with an ID
+    /// </summary>
+    /// <param name="ID">The criterions ID</param>
+    public BaseCriterion(string ID) : base(ID) {
       Name = string.Empty;
     }
 
     /// <summary>
-    /// Create a task with an ID
-    /// </summary>
-    /// <param name="ID">ID if the task</param>
-    public BaseTask(string ID) : base(ID) {
-      this.ID = ID;
-      Name = string.Empty;
-    }
-
-    /// <summary>
-    /// Is the task fully defined?
+    /// Is the criterion fully defined?
     /// </summary>
     /// <returns>Definedness of the task</returns>
     public virtual bool IsDefined() {

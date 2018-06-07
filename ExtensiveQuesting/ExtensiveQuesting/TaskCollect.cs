@@ -25,5 +25,16 @@ namespace ExtensiveQuesting.QuestingItem.Task {
     public TaskCollect() : base(TaskIDs.collect_items.ToString()) {
       TaskItem = new QuestItem();
     }
+
+    /// <summary>
+    /// Is the task fully defined?
+    /// </summary>
+    /// <returns>Definedness of the task</returns>
+    public override bool IsDefined() {
+      return (
+        (base.IsDefined()) &&
+        (TaskItem.ID != string.Empty)
+      );
+    }
   }
 }

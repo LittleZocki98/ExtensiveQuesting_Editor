@@ -28,7 +28,27 @@ namespace ExtensiveQuesting.QuestingItem.Task {
     /// Constructor
     /// </summary>
     public TaskTalk() : base(TaskIDs.talk_to.ToString()) {
+      NPC_ID = string.Empty;
+      NPC_Message = string.Empty;
+    }
 
+    /// <summary>
+    /// Is the task fully defined?
+    /// </summary>
+    /// <returns>Definedness of the task</returns>
+    public override bool IsDefined() {
+      return (
+        (base.IsDefined()) &&
+        (NPC_ID != string.Empty)
+      );
+    }
+
+    /// <summary>
+    /// Determine, if it's necessary to serialize the 'NPC_Message'-Member
+    /// </summary>
+    /// <returns></returns>
+    public bool ShouldSerializeNPC_Message() {
+      return (NPC_Message != string.Empty);
     }
   }
 }

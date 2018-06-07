@@ -59,10 +59,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseCriterion.cs" />
     <Compile Include="BaseQuest.cs" />
     <Compile Include="BaseItem.cs" />
+    <Compile Include="BaseReward.cs" />
+    <Compile Include="CriterionExperience.cs" />
+    <Compile Include="CriterionPermission.cs" />
+    <Compile Include="CriterionQuest.cs" />
+    <Compile Include="CriterionSkill.cs" />
+    <Compile Include="CriterionStatistic.cs" />
     <Compile Include="ExtensiveQuest.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="RewardCommand.cs" />
+    <Compile Include="RewardExperience.cs" />
+    <Compile Include="RewardItem.cs" />
+    <Compile Include="RewardSkill.cs" />
     <Compile Include="TaskCollect.cs" />
     <Compile Include="TaskKill.cs" />
     <Compile Include="TaskTalk.cs" />

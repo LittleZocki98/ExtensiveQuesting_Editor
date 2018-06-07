@@ -31,5 +31,16 @@ namespace ExtensiveQuesting.QuestingItem.Task {
       Amount = 0;
       Entity = string.Empty;
     }
+
+    /// <summary>
+    /// Is the task fully defined?
+    /// </summary>
+    /// <returns>Definedness of the task</returns>
+    public override bool IsDefined() {
+      return (
+        (base.IsDefined()) &&
+        (Entity != string.Empty)
+      );
+    }
   }
 }
