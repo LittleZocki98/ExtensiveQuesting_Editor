@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using System.Reflection;
+using ExtensiveQuesting.QuestingItem.Quest;
 using ExtensiveQuesting.EnumDescription;
 
 namespace ExtensiveQuesting.QuestingItem.Task {
@@ -12,7 +12,7 @@ namespace ExtensiveQuesting.QuestingItem.Task {
   /// A list of all valid task IDs
   /// </summary>
   public enum TaskIDs {
-    [Description("Kill mobs")]
+    [Description("Kill entity")]
     kill_mob,
 
     [Description("Collect items")]
@@ -38,6 +38,12 @@ namespace ExtensiveQuesting.QuestingItem.Task {
     /// </summary>
     [JsonProperty("name")]
     public string Name { get; set; }
+
+    /// <summary>
+    /// Parent quest
+    /// </summary>
+    [JsonIgnore]
+    public BaseQuest ParentQuest { get; internal protected set; }
 
     /// <summary>
     /// Create a task without an ID

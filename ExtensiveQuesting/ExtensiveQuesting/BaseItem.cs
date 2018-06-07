@@ -11,7 +11,7 @@ namespace ExtensiveQuesting.QuestingItem {
     /// ID of the item
     /// </summary>
     [JsonProperty("id")]
-    public string ID { get; set; }
+    public virtual string ID { get; set; }
 
     /// <summary>
     /// Create a base item without an ID

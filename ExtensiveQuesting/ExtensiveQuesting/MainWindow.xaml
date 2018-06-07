@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
-    </Grid>
+    <TextBlock x:Name="tblTests" TextWrapping="Wrap" Margin="5"/>
+
+  </Grid>
 </Window>

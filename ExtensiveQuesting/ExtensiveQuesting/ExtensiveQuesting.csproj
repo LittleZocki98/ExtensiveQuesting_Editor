@@ -61,6 +61,13 @@
     </ApplicationDefinition>
     <Compile Include="BaseQuest.cs" />
     <Compile Include="BaseItem.cs" />
+    <Compile Include="ExtensiveQuest.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="TaskCollect.cs" />
+    <Compile Include="TaskKill.cs" />
+    <Compile Include="TaskTalk.cs" />
+    <Compile Include="TaskTime.cs" />
+    <Compile Include="TaskWalk.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
