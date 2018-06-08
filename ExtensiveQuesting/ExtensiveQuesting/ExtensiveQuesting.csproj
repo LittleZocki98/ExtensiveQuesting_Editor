@@ -122,6 +122,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gfx\Criterion.png" />
+    <Resource Include="gfx\Error.png" />
+    <Resource Include="gfx\Item.png" />
+    <Resource Include="gfx\NPC.png" />
+    <Resource Include="gfx\Quest.png" />
+    <Resource Include="gfx\Reward.png" />
+    <Resource Include="gfx\Task.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
