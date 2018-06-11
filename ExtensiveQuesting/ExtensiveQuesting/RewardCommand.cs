@@ -25,11 +25,14 @@ namespace ExtensiveQuesting.QuestingItem.Reward {
     /// Is the reward fully defined?
     /// </summary>
     /// <returns>Definedness of the reward</returns>
-    public override bool IsDefined() {
-      return (
-        (base.IsDefined()) &&
-        (Command != string.Empty)
-      );
+    [JsonIgnore]
+    public override bool IsDefined {
+      get {
+        return (
+          (base.IsDefined) &&
+          (Command != string.Empty)
+        );
+      }
     }
   }
 }

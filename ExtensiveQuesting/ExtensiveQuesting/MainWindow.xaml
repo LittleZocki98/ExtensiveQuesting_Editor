@@ -5,11 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         
         xmlns:local="clr-namespace:ExtensiveQuesting"
-        xmlns:qItem="clr-namespace:ExtensiveQuesting.QuestingItem"
+        xmlns:item="clr-namespace:ExtensiveQuesting.QuestingItem"
+        xmlns:quest="clr-namespace:ExtensiveQuesting.QuestingItem.Quest"
+        xmlns:criterion="clr-namespace:ExtensiveQuesting.QuestingItem.Criterion"
+        xmlns:task="clr-namespace:ExtensiveQuesting.QuestingItem.Task"
+        xmlns:reward="clr-namespace:ExtensiveQuesting.QuestingItem.Reward"
+        xmlns:converter="clr-namespace:ExtensiveQuesting.Converter"
+        
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="800">
+  <Window.Resources>
+    <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" True="Collapsed" False="Visible"/>
+  </Window.Resources>
   <Grid>
-    <TextBox x:Name="tblTest" Margin="2" TextWrapping="Wrap" IsReadOnly="true"/>
+    <!-- Column Definitions -->
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="5"/>
+      <ColumnDefinition Width="2*"/>
+      <ColumnDefinition Width="2*"/>
+      <ColumnDefinition Width="2*"/>
+      <ColumnDefinition Width="6*"/>
+      <ColumnDefinition Width="6*"/>
+      <ColumnDefinition Width="5"/>
+    </Grid.ColumnDefinitions>
+
+    <!-- Row Definitions -->
+    <Grid.RowDefinitions>
+      <RowDefinition Height="5"/>
+      <RowDefinition Height="1*"/>
+      <RowDefinition Height="30"/>
+      <RowDefinition Height="30"/>
+      <RowDefinition Height="5"/>
+    </Grid.RowDefinitions>
+
+
+    <!-- TextBox for final JSON-string preview -->
+    <TextBox x:Name="tblJson" Margin="2" TextWrapping="Wrap" IsReadOnly="true" Grid.Column="5" Grid.ColumnSpan="1" Grid.Row ="1" Grid.RowSpan="3"/>
+
+    <!-- TreeView -->
+    <TreeView x:Name="trvQuests" Margin="2" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="1">
+      <TreeView.Resources>
+        
+        <!-- Handle Quests and their children -->
+        <HierarchicalDataTemplate DataType="{x:Type quest:ExtensiveQuest}" ItemsSource="{Binding Children}">
+          <StackPanel Orientation="Horizontal">
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Error.png" Visibility="{Binding IsDefined, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Quest.png"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding ID}" Margin="2"/>
+            <TextBlock VerticalAlignment="Center" Text="|" Margin="2"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" Margin="2"/>
+          </StackPanel>
+        </HierarchicalDataTemplate>
+
+        <DataTemplate DataType="{x:Type criterion:BaseCriterion}">
+          <StackPanel Orientation="Horizontal">
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Error.png" Visibility="{Binding IsDefined, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Criterion.png"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding ID}" Margin="2"/>
+            <TextBlock VerticalAlignment="Center" Text="|" Margin="2"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" Margin="2"/>
+          </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type task:BaseTask}">
+          <StackPanel Orientation="Horizontal">
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Error.png" Visibility="{Binding IsDefined, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Task.png"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding ID}" Margin="2"/>
+            <TextBlock VerticalAlignment="Center" Text="|" Margin="2"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding Name}" Margin="2"/>
+          </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type reward:BaseReward}">
+          <StackPanel Orientation="Horizontal">
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Error.png" Visibility="{Binding IsDefined, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <Image RenderOptions.BitmapScalingMode="HighQuality" Height="16" Margin="2" Source="gfx/Reward.png"/>
+            <TextBlock VerticalAlignment="Center" Text="{Binding ID}" Margin="2"/>
+          </StackPanel>
+        </DataTemplate>
+      </TreeView.Resources>
+    </TreeView>
+    
+    <!-- Buttons -->
 
   </Grid>
 </Window>

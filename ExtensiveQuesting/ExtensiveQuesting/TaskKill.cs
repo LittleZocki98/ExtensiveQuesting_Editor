@@ -31,11 +31,14 @@ namespace ExtensiveQuesting.QuestingItem.Task {
     /// Is the task fully defined?
     /// </summary>
     /// <returns>Definedness of the task</returns>
-    public override bool IsDefined() {
-      return (
-        (base.IsDefined()) &&
-        (Entity != string.Empty)
-      );
+    [JsonIgnore]
+    public override bool IsDefined {
+      get {
+        return (
+          (base.IsDefined) &&
+          (Entity != string.Empty)
+        );
+      }
     }
   }
 }

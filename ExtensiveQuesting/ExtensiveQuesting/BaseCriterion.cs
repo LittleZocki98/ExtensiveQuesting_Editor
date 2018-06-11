@@ -59,11 +59,14 @@ namespace ExtensiveQuesting.QuestingItem.Criterion {
     /// Is the criterion fully defined?
     /// </summary>
     /// <returns>Definedness of the task</returns>
-    public virtual bool IsDefined() {
-      return (
-        ID != string.Empty &&
-        Name != string.Empty
-      );
+    [JsonIgnore]
+    public virtual bool IsDefined {
+      get {
+        return (
+          ID != string.Empty &&
+          Name != string.Empty
+        );
+      }
     }
   }
 }

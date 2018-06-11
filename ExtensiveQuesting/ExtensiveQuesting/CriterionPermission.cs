@@ -25,12 +25,14 @@ namespace ExtensiveQuesting.QuestingItem.Criterion {
     /// Is the criterion fully defined?
     /// </summary>
     /// <returns>Definedness of the criterion</returns>
-    public override bool IsDefined() {
-      return (
-        (base.IsDefined()) &&
-        (Permission != string.Empty)
-      );
+    [JsonIgnore]
+    public override bool IsDefined {
+      get {
+        return (
+          (base.IsDefined) &&
+          (Permission != string.Empty)
+        );
+      }
     }
-
   }
 }

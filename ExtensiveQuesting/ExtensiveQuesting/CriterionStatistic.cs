@@ -60,13 +60,16 @@ namespace ExtensiveQuesting.QuestingItem.Criterion {
     /// Is the criterion fully defined?
     /// </summary>
     /// <returns>Definedness of the criterion</returns>
-    public override bool IsDefined() {
-      return (
-        (base.IsDefined()) &&
-        (NeedEntity ? Entity != string.Empty : true) &&
-        (NeedItem ? Item != string.Empty : true) &&
-        (Statistic != string.Empty)
-      );
+    [JsonIgnore]
+    public override bool IsDefined {
+      get {
+        return (
+          (base.IsDefined) &&
+          (NeedEntity ? Entity != string.Empty : true) &&
+          (NeedItem ? Item != string.Empty : true) &&
+          (Statistic != string.Empty)
+        );
+      }
     }
 
     public bool ShouldSerializeEntity() {

@@ -39,14 +39,16 @@ namespace ExtensiveQuesting.QuestingItem.Reward {
     /// 
     /// </summary>
     /// <returns></returns>
-    public override bool IsDefined() {
-
-      foreach(QuestItem i in Items) {
-        if (!i.IsDefined()) {
-          return false;
+    [JsonIgnore]
+    public override bool IsDefined {
+      get {
+        foreach(QuestItem i in Items) {
+          if(!i.IsDefined) {
+            return false;
+          }
         }
+        return base.IsDefined;
       }
-      return base.IsDefined();
     }
   }
 }

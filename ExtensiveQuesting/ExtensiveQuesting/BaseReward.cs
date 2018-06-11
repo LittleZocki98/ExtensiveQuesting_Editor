@@ -47,8 +47,11 @@ namespace ExtensiveQuesting.QuestingItem.Reward {
     /// Is the reward fully defined?
     /// </summary>
     /// <returns>Definedness of the reward</returns>
-    public virtual bool IsDefined() {
-      return ID != string.Empty;
+    [JsonIgnore]
+    public virtual bool IsDefined {
+      get {
+        return ID != string.Empty;
+      }
     }
   }
 }

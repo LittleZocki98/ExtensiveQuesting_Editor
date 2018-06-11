@@ -83,8 +83,11 @@ namespace ExtensiveQuesting.QuestingItem.Item {
     /// 
     /// </summary>
     /// <returns></returns>
-    public bool IsDefined() {
-      return ID != string.Empty;
+    [JsonIgnore]
+    public bool IsDefined {
+      get {
+        return ID != string.Empty;
+      }
     }
   }
 }

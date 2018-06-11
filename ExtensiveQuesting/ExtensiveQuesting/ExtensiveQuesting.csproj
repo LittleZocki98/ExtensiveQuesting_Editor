@@ -63,6 +63,7 @@
     <Compile Include="BaseQuest.cs" />
     <Compile Include="BaseItem.cs" />
     <Compile Include="BaseReward.cs" />
+    <Compile Include="Converter.cs" />
     <Compile Include="CriterionExperience.cs" />
     <Compile Include="CriterionPermission.cs" />
     <Compile Include="CriterionQuest.cs" />

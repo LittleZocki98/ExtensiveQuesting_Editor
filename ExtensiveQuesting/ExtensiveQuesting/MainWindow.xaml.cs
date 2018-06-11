@@ -25,6 +25,8 @@ namespace ExtensiveQuesting {
   /// <summary>
   /// Interaktionslogik für MainWindow.xaml
   /// </summary>
+  /// 
+
   public partial class MainWindow : Window {
 
     public MainWindow() {
@@ -35,12 +37,13 @@ namespace ExtensiveQuesting {
 
     private void test() {
       ExtensiveQuest q = new ExtensiveQuest("NewQuest") { Name = "My New Quest", Text = "Complete this Quest!" };
-      q.AddCriterion(new CriterionExperience() { Level = 12, IsLevel = false, Name = "Get \"Experience\"" });
-      q.AddTask(new TaskCollect() { Name = "Collect Items", TaskItem = new QuestingItem.Item.QuestItem("Gold") { Meta = 1, Amount = 16 } });
-      q.AddReward(new RewardCommand() { Command = "Excample_Command" });
-      q.AddReward(new RewardItem());
 
-      tblTest.Text = JsonConvert.SerializeObject(q, Formatting.Indented);
+      q.AddTask(new TaskCollect() { Name = "Collect", TaskItem = new QuestingItem.Item.QuestItem() { ID = "Gold" } });
+      q.AddReward(new RewardCommand() { Command = "kill $PLAYER" });
+
+      tblJson.Text = JsonConvert.SerializeObject(q, Formatting.Indented);
+      trvQuests.Items.Clear();
+      trvQuests.Items.Add(q);
     }
 
   }

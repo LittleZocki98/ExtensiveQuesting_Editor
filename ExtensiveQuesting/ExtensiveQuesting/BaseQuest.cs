@@ -36,12 +36,14 @@ namespace ExtensiveQuesting.QuestingItem.Quest {
     /// Is the quest fully defined?
     /// </summary>
     /// <returns>Definedness of the quest</returns>
-    public virtual bool IsDefined() {
-      return (
-        ID != string.Empty &&
-        Name != string.Empty
-      );
+    [JsonIgnore]
+    public virtual bool IsDefined {
+      get {
+        return (
+          ID != string.Empty &&
+          Name != string.Empty
+        );
+      }
     }
-
   }
 }

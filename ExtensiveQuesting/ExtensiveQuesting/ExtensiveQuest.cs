@@ -81,11 +81,32 @@ namespace ExtensiveQuesting.QuestingItem.Quest {
     /// Check, if the quest is completely defined
     /// </summary>
     /// <returns>DEfinedness of the quest</returns>
-    public override bool IsDefined() {
-      return (
-        base.IsDefined() &&
-        Text != string.Empty
-      );
+    [JsonIgnore]
+    public override bool IsDefined {
+      get {
+        foreach(BaseCriterion i in Criteria) {
+          if (!i.IsDefined) {
+            return false;
+          }
+        }
+
+        foreach(BaseTask i in Tasks) {
+          if(!i.IsDefined) {
+            return false;
+          }
+        }
+
+        foreach(BaseReward i in Rewards) {
+          if(!i.IsDefined) {
+            return false;
+          }
+        }
+
+        return (
+          (base.IsDefined) &&
+          (Text != string.Empty)
+        );
+      }
     }
 
     /// <summary>
